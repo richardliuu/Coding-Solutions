@@ -1,0 +1,16 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        filtered = ""
+
+        for i in s:
+            if i.isalnum():
+                filtered += i.lower()
+
+        print(filtered)
+        print(filtered[::-1])
+
+        if filtered == filtered[-1::-1]:
+            return True
+        else:
+            return False
+        
