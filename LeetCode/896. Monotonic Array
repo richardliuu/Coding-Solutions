@@ -1,0 +1,16 @@
+class Solution:
+    def isMonotonic(self, nums: List[int]) -> bool:
+        length = len(nums)
+        i = 0
+
+        increasing = True
+        decreasing = True 
+
+        while i < length - 1:
+            if nums[i] < nums[i + 1]:
+                increasing = False
+            elif nums[i] > nums[i+1]:
+                decreasing = False 
+            i += 1
+
+        return increasing or decreasing
