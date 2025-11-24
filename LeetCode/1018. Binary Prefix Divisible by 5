@@ -1,0 +1,19 @@
+class Solution:
+    def prefixesDivBy5(self, nums: List[int]) -> List[bool]:
+        answer = []
+        binary = ""
+
+        """
+        Create a string that will check if divisible by 5 
+
+        We will add the next letter to each and check that too 
+        """
+        for i in range(len(nums)):
+            binary += str(nums[i])
+
+            if int(binary, 2) % 5 == 0:
+                answer.append(True)
+            else:
+                answer.append(False)
+
+        return answer 
