@@ -1,0 +1,16 @@
+class Solution:
+    def maximumWealth(self, accounts: List[List[int]]) -> int:
+        """
+        Get the sum of each list
+        """
+
+        wealthiest = 0 
+
+        for i in range(len(accounts)):
+            total = sum(accounts[i])
+
+            if total > wealthiest:
+                wealthiest = total
+
+        return wealthiest 
+        
