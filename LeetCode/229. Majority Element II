@@ -1,0 +1,12 @@
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        counts = Counter(nums)
+        elements = []
+        length = len(nums)
+        size  = len(nums)// 3
+
+        for element, count in counts.items():
+            if count > size: 
+                elements.append(element)
+
+        return elements
