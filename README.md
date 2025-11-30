@@ -1,3 +1,10 @@
-# DMOJ solutions
+# Competitive Programming & Coding Solutions
+This repository contains my solutions to various competitive programming problems and coding challenges. It serves as a comprehensive record of my programming journey and a resource for others who may be working on similar problems.
 
-This repository contains my Python solutions to programming problems that I have done. It serves as a record of my progress and a place to share solutions if others are stuck. The repository is organized into a structure of folders, labeled by specific contests and years like the CCC. In these folders are files that contain the solutions to the problems labeled by name. 
+## What's included:
+- **Canadian Computing Competition (CCC)** solutions from 2005-2025
+- **LeetCode** problems for technical interview preparation  
+- **DMOJ** contest problems including Animal Contest series
+- Various algorithmic challenges and implementations
+
+The repository is organized by contest/platform, making it easy to find solutions for specific competitions or problem types. My solutions are primarily in Python, showcasing different approaches to algorithmic problem-solving. Feel free to browse through the solutions if you're stuck on a problem or want to see different implementation approaches! 
