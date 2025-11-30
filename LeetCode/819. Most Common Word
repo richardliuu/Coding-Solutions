@@ -1,0 +1,13 @@
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        cleaned = re.findall("\w+", paragraph.lower())
+        filtered = []
+
+        for i in cleaned:
+            if i not in banned:
+                filtered.append(i)
+
+        counts = Counter(filtered)
+
+        return max(counts, key=counts.get)
+        
