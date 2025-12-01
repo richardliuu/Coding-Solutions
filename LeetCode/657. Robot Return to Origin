@@ -1,0 +1,9 @@
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        """
+        The robot will return to the origin if the opposing operations are the same, negating 
+        the distance.
+        """
+        
+        move_types = Counter(moves)
+        return move_types["U"] == move_types["D"] and move_types["L"] == move_types["R"]
