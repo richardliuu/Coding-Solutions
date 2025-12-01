@@ -1,0 +1,16 @@
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        counts = Counter(s)
+        new_string = ""
+        heap = []
+
+        for string, count in counts.items():
+            heapq.heappush(heap, (-count, string))
+
+        # While the heap is not empty 
+        while heap:
+            count, element = heapq.heappop(heap)
+            new_string += element * (-count)
+
+        return new_string
+        
