@@ -1,0 +1,13 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        # Create counters 
+        ransom_counts = Counter(ransomNote)
+        magazine_counts = Counter(magazine)
+
+        # If the loop goes without returning false
+        for i in ransom_counts:
+            if magazine_counts[i] < ransom_counts[i]:
+                return False
+
+        return True 
+
