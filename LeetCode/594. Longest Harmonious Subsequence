@@ -1,0 +1,21 @@
+class Solution:
+    def findLHS(self, nums: List[int]) -> int:
+        nums.sort()
+        left = 0 
+        longest = 0 
+
+        """
+        We can compare indexes beside each other because the difference between max
+        and min is 1 which should be the only elements in the window
+        """
+
+        for right in range(len(nums)):
+            # While the difference is not 1 
+            while nums[right] - nums[left] > 1:
+                left += 1
+
+            if nums[right] - nums[left] == 1:
+                longest = max(longest, right - left + 1)
+
+        return longest
+        
