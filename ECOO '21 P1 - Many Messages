@@ -1,0 +1,13 @@
+n = int(input())
+interval = int(input())
+mesg = int(input())
+
+for i in range(1, 4):
+    time = n + i * interval
+    if time >= mesg:
+        print(time)
+        break
+
+else:
+    print("Who knows...")
+
