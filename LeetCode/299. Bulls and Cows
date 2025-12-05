@@ -1,1 +1,23 @@
+class Solution:
+    def getHint(self, secret: str, guess: str) -> str:
+        bulls = 0
+        cows = 0
+        counts_secret = Counter()
+        counts_guess = Counter()
+
+        # Bulls
+        for g in range(len(guess)):
+            if guess[g] == secret[g]:
+                bulls += 1
+            else:
+                # Add to the untracked counters
+                counts_secret[secret[g]] += 1
+                counts_guess[guess[g]] += 1
+
+        # Cows
+        for i in counts_guess:
+            # Check matches between (lowest, excludes non matching)
+            cows += min(counts_secret[i], counts_guess[i])
+
+        return f"{bulls}A{cows}B"
 
