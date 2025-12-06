@@ -1,0 +1,12 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        elements = []
+
+        counts = Counter(nums)
+
+        for i in range(2):
+            once = min(counts, key=counts.get)
+            elements.append(once)
+            del counts[once]
+
+        return elements 
