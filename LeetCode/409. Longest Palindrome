@@ -1,0 +1,19 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+
+        length = 0 
+        counts = Counter(s)
+        odd = False
+        print(counts) 
+
+        for i in counts:
+            if counts[i] % 2 == 0:
+                length += counts[i]
+            elif counts[i] % 2 != 0:
+                length += counts[i] - 1
+                odd = True 
+
+        if odd:
+            length += 1
+            
+        return length 
