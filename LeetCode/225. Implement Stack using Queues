@@ -1,0 +1,31 @@
+from collections import deque
+
+class MyStack:
+    """ Create a queue and reverse the operations """
+    def __init__(self):
+        self.q = deque()
+
+    def push(self, x: int) -> None:
+        """ 
+        We want to move the elements of the stack such that the newly added
+        is at the front of the stack
+        """
+        self.q.append(x)
+
+        # Loop because we deal with the length of the queue - the newly added 
+        for i in range(len(self.q) - 1):
+            # Create variable to remove the elements on the left
+            val = self.q.popleft()
+            # Add them back at the right of the queue
+            self.q.append(val)
+
+    def pop(self) -> int:
+        # FIFO
+        return self.q.popleft()
+
+    def top(self) -> int:
+        # FIFO
+        return self.q[0]
+
+    def empty(self) -> bool:
+        return len(self.q) == 0 
