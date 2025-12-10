@@ -1,0 +1,26 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        """
+        Create a stack (LIFO) to track the parentheses.
+
+        We check whether there is a matching pair of parentheses 
+        (push brackets and check if the latest addition to the stack is a match to the bracket before)
+        """
+ 
+        stack = [] 
+
+        # Create a dictionary that holds corresponding brackets
+        brackets = {"(": ")", "[": "]", "{": "}"}
+
+        for char in s:
+            if char in brackets:
+                stack.append(brackets[char])
+            else:
+                # Stack empty or no match 
+                if not stack or stack[-1] != char:
+                    return False 
+
+                stack.pop()
+
+        # If the stack is empty, all operations have been done 
+        return len(stack) == 0 
