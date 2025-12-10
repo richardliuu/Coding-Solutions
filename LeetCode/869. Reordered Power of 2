@@ -1,0 +1,12 @@
+class Solution:
+    def reorderedPowerOf2(self, n: int) -> bool:
+        num = "".join(sorted(str(n)))
+        powers = set()
+
+        print(num)
+
+        for i in range(31):
+            powers.add("".join(sorted(str(2**i))))
+
+        return num in powers   
+        
