@@ -1,0 +1,16 @@
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        arr = []
+        n1_set = set(nums1)
+        n2_set = set(nums2)
+
+        if len(n1_set) < len(n2_set):
+            for i in n1_set:
+                if i in n2_set:
+                    arr.append(i)
+        else:
+            for i in n2_set:
+                if i in n1_set:
+                    arr.append(i)
+
+        return list(arr) 
