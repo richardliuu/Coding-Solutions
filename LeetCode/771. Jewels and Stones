@@ -1,0 +1,12 @@
+class Solution:
+    def numJewelsInStones(self, jewels: str, stones: str) -> int:
+        total = 0
+
+        dict_jewels = Counter(jewels)
+
+        for i in stones:
+            if i in dict_jewels:
+                total += 1
+
+        return total 
+        
