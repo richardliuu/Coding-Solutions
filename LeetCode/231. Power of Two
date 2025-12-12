@@ -1,0 +1,10 @@
+class Solution:
+    def isPowerOfTwo(self, n: int) -> bool:
+        """ Compute all powers of 2 and determine whether 
+        it matches n """
+        powers = []
+
+        for i in range(31):
+            powers.append(2**i)
+
+        return n in powers 
