@@ -1,0 +1,38 @@
+class Solution:
+    def KDistinctWindow(self, nums: List[int], k: int) -> int:
+        """ Helper Function for the exact_k = most_k(k) - most_k(k-1) """
+        length = len(nums)
+
+        # Freq map
+        counts = {}
+
+        # Pointers
+        left = 0 
+        right = 0
+
+        # Number of subarrays in the window that are valid  
+        count = 0
+
+        while right < length:
+            # Add to the dictionary count and return 0 if not found 
+            counts[nums[right]] = counts.get(nums[right], 0) + 1 
+
+            # Handle logic for moving window left 
+            while len(counts) > k:
+                counts[nums[left]] -= 1 
+
+                if counts[nums[left]] == 0 :
+                    del counts[nums[left]]
+
+                left += 1
+
+            # Add to the amount of subarrays there are 
+            count += right - left + 1
+            right += 1
+        
+        return count 
+
+    def subarraysWithKDistinct(self, nums: List[int], k: int) -> int:
+        return self.KDistinctWindow(nums, k) - self.KDistinctWindow(nums, k - 1)
+
+    
