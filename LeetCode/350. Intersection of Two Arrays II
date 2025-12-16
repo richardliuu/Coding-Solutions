@@ -1,0 +1,15 @@
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        arr = [] 
+        n1_counts = Counter(nums1)
+        n2_counts = Counter(nums2)
+
+        for i in n1_counts:
+            if i in n2_counts:
+                # Track the amount of times it appears in both
+                times = min(n1_counts[i], n2_counts[i])
+                arr.extend([i] * times)
+
+        return arr 
+
+        
