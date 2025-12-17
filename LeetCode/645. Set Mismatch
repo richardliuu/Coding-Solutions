@@ -1,0 +1,11 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        expected = int(n*(n+1) / 2)
+        array = sum(nums) 
+        unique = sum(set(nums))
+
+        missing = expected - unique
+        duplicate = array - unique
+
+        return [duplicate, missing]
