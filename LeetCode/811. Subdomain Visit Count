@@ -1,0 +1,26 @@
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+        counts = collections.Counter()
+        res = []
+
+        for string in cpdomains:
+            visits, domain = string.split()
+
+            # Initial count 
+            counts[domain] += int(visits)
+
+            for i in range(len(domain)):
+                if domain[i] == ".":
+                    # If the domain is seen anymore times 
+                    counts[domain[i+1:]] += int(visits)
+        
+        # Add to a list 
+        for element, value in counts.items():
+            string = f"{value} {element}"
+            res.append(string)
+
+        # Return the key and the value 
+        return res
+        
+
+        
