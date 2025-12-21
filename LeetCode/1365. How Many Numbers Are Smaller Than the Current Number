@@ -1,0 +1,18 @@
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        ordered = sorted(nums)
+        mapping = {}
+
+        print(ordered)
+
+        for num in range(len(ordered)):
+            if ordered[num] not in mapping:
+                mapping[ordered[num]] = num
+
+        print(mapping)
+
+        for i in range(len(nums)):
+            nums[i] = mapping[nums[i]]
+
+        return nums
+        
