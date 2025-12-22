@@ -1,0 +1,18 @@
+class Solution:
+    def minDeletionSize(self, strs: List[str]) -> int:
+        """
+        Determine whether the next row in a column is larger or greater
+        """
+        deletes = 0
+
+        # Start with the columns of the first string 
+        for col in range(len(strs[0])):
+            # Go through the rows below 
+            for row in range(1, len(strs)):
+                if strs[row][col] < strs[row-1][col]:
+                    # Add to the amount of columns that need to be deleted
+                    deletes += 1
+                    # Break to no longer handle the column
+                    break
+
+        return deletes
