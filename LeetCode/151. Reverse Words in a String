@@ -1,0 +1,31 @@
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        ordered = s.strip().split()
+
+        print(ordered)
+
+        """
+        Create a left pointer and right pointer
+        Swap the contents of the left and right
+        Increment the left pointer +1 and the right -1 
+        """
+        left = 0
+        right = len(ordered) - 1
+
+        print(right)
+
+        """ 
+        We only need to loop through half the string because
+        there will be a right counterpart for every left 
+        """    
+        for i in range(len(ordered) // 2):
+            reversed_left = ordered[right]
+            reversed_right = ordered[left]
+            ordered[left] = reversed_left
+            ordered[right] = reversed_right
+            left += 1
+            right -= 1
+
+        # Fill in param with a list 
+        return " ".join(ordered)
+        
