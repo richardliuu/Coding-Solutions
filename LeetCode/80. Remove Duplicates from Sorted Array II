@@ -1,0 +1,15 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        # Writing pointer 
+        k = 2
+
+        # Read pointer 
+        for i in range(2, len(nums)):
+            # Check if the element has been seen more than twice 
+            if nums[i] != nums[k-2]:
+                # Rewrite 
+                nums[k] = nums[i]
+                # Increment k to follow the read pointer 
+                k += 1 
+
+        return k 
