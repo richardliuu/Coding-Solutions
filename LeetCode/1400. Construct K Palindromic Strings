@@ -1,0 +1,23 @@
+class Solution:
+    def canConstruct(self, s: str, k: int) -> bool:
+        # Edge case check 
+        if len(s) < k:
+            return False 
+
+        counts = Counter(s)
+
+        # Odd elements in the palindrome 
+        odd_counts = 0 
+
+        for i in counts:
+            if counts[i] % 2 != 0:
+                odd_counts += 1
+
+        print(odd_counts)
+
+        return odd_counts <= k
+
+
+
+
+
