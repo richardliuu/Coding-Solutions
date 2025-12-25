@@ -1,0 +1,30 @@
+class Solution:
+    def compress(self, chars: List[str]) -> int:
+        length = len(chars)
+        write = 0 
+        read = 0 
+
+        # Read has not gotten to the end 
+        while read < length:
+            char = chars[read]
+            counts = 0 
+
+            # Begin to add to counts
+            while read < length and chars[read] == char:
+                read += 1
+                counts += 1
+
+            # Write the element that is being counted
+            chars[write] = char 
+            write += 1
+            
+            # Write if necessary
+            if counts > 1:
+                for digit in str(counts):
+                    # Write individually 
+                    chars[write] = digit
+                    write += 1
+
+        # This is the position of all necessary characters
+        return write 
+
