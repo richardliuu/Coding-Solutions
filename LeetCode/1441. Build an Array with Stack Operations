@@ -1,0 +1,35 @@
+class Solution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+        """
+        Reach the target using stack operations and our given range 
+        """
+        
+        operations = [] 
+        stack = [] 
+        stream = []
+
+        for data in range(1, n+1):
+            stream.append(data)
+
+        """
+        If there is an element, 1 push
+        If there are 2 elements that are not consecutive, we need to figure out the 
+        operations there (eg. 1, 3 (missing a 2 in between))
+        """
+        while target != stack:
+            # Take from the range of integers 
+            for i in range(len(stream)):
+                # If from the stream, the thing is not found
+                if stream[i] not in target:
+                    # We know that the item has been deleted 
+                    operations.append("Push")
+                    operations.append("Pop")
+                else:
+                    stack.append(stream[i])
+                    operations.append("Push")
+
+                if target == stack:
+                    return operations
+                    
+        # Return otherwise 
+        return operations 
