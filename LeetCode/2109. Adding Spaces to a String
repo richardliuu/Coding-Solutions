@@ -1,0 +1,15 @@
+class Solution:
+    def addSpaces(self, s: str, spaces: List[int]) -> str:
+        num_spaces = 0
+        l_s = []
+
+        # Only need to handle up until 
+        for element in range(len(s)):
+            """ Search through s and match with the space_pointer """ 
+            if num_spaces < len(spaces) and element == spaces[num_spaces]:
+                l_s.append(" ")
+                num_spaces += 1
+            l_s.append(s[element])
+
+        return "".join(l_s)
+            
