@@ -1,0 +1,16 @@
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        """
+        Use a read and write pointer 
+        """
+
+        seen = set()
+        write = 0 
+
+        for read in range(len(nums)):
+            if nums[read] not in seen:
+                nums[write] = nums[read]
+                write += 1
+            seen.add(nums[read])
+
+        return write
