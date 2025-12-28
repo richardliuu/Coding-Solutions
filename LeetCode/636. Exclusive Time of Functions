@@ -1,0 +1,35 @@
+class Solution:
+    def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
+        """
+        Only one function can go on at a time
+        """
+
+        stack = []
+        times = [0] * n
+        prev_time = 0
+
+        # Loop through
+        for function in logs:
+            # Split information
+            func_id, typ, end_time = function.split(":")
+            func_id = int(func_id)
+            end_time = int(end_time)
+
+            if typ == "start":
+                # If the stack is not empty and there was a running function
+                if stack:
+                    # Search for func id 
+                    times[stack[-1]] += end_time - prev_time
+                stack.append(func_id)
+                prev_time = end_time 
+            # If it is end 
+            else:
+                # Pop the function from stack and inclusive ending
+                times[stack.pop()] += end_time - prev_time + 1
+                # End time is inclusive
+                prev_time = end_time + 1 
+        
+        return times 
+        
+
+
