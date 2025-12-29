@@ -1,0 +1,18 @@
+class Solution:
+    def averageWaitingTime(self, customers: List[List[int]]) -> float:
+        waiting_time = 0
+        running_time = 0 
+        length = len(customers)
+
+        for arrival, required in customers:
+            if running_time < arrival:
+                # If there has been a break within the chef's time (idle)
+                running_time = arrival
+            # (finish time = running + cooking time) - (arrival)
+            waiting_time += (running_time  + required) - arrival
+            
+            # Add to the running time if there has been overlap
+            running_time += required
+            
+        average = float(waiting_time) / length
+        return average 
