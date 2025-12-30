@@ -1,0 +1,28 @@
+class Solution:
+    def maxDistance(self, arrays: List[List[int]]) -> int:
+        # Get the overall minimum and maximum of the array
+        global_min = arrays[0][0]
+        global_max = arrays[0][-1]
+        distance = 0 
+
+        for arr in range(1, len(arrays)):
+            # Compare with local amounts
+            local_min = arrays[arr][0]
+            local_max = arrays[arr][-1]
+
+            print(local_min, local_max)
+
+            """
+            Cycle through global - local and local - global to avoid choosing from the same array
+            """
+            distance = max(distance, max(global_max - local_min, local_max - global_min))
+
+            print(distance)
+
+            # Update globally but only after the distance has been calculated
+            global_min = min(global_min, local_min)
+            global_max = max(global_max, local_max)
+
+            print(global_min, global_max)
+
+        return distance 
