@@ -1,0 +1,22 @@
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        """
+        2 pointers 
+        """
+        
+        start = 0 
+        end = len(numbers) - 1
+
+        while start < end:
+            if numbers[start] + numbers[end] == target:
+                # 1 indexed array
+                return [start+1, end+1]
+            elif numbers[start] + numbers[end] > target:
+                # Sum too large, bring down end
+                end -= 1
+            else:
+                # Sum to small, increase from the start
+                # We also know that previous combinations would be too large (sorted array)
+                start += 1
+
+        return [start+1, end+1]
