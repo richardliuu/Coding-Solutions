@@ -1,0 +1,26 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        """
+        We must buy before selling meaning that all previous indexes are ignored 
+
+        Look for the lowest amount and the highest amount 
+        """
+
+        smallest = prices[0]
+        profit = 0 
+
+        for price in range(1, len(prices)):
+            if prices[price] - smallest > 0:
+                profit = max(profit, prices[price] - smallest)
+            # A profit would have not been possible here 
+            if prices[price] < smallest:
+                smallest = prices[price]
+
+        return profit
+
+
+
+            
+
+        
+
