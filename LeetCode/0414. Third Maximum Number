@@ -1,0 +1,18 @@
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        unique = set()
+        new_nums = []
+
+        for num in range(len(nums)):
+            if nums[num] not in unique:
+                new_nums.append(nums[num])
+            unique.add(nums[num])
+
+        sorted_nums = sorted(new_nums)
+
+        print(sorted_nums)
+        if len(sorted_nums) < 3:
+            return max(sorted_nums)
+        else:
+            return sorted_nums[-3]
+        
