@@ -1,0 +1,58 @@
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        """
+        For optimal checks of whether str(t) is in str(s), we use the wanted chars and required chars
+        to make that comparison to confirm whether the window is valid. Then, while the condition is valid,
+        we will optimize the window and update it
+        """
+
+        left = 0
+        right = 0
+        length = len(s)
+
+        counts_t = Counter(t)
+        window = Counter()
+
+        wanted_chars = 0 
+        required = len(counts_t)
+
+        # set the minimum length to infinite so that a comparison can always be made
+        min_len = float('inf')
+        min_left = 0 
+        min_right = 0
+
+        while right < length:
+            """
+            Handle adding characters (update window)and 
+            if the character is the one we need from the minimum window 
+            """
+
+            # Counters can handle 0 values in dictionaries
+            window[s[right]] += 1
+
+            # Adjust the count 
+            if s[right] in counts_t and window[s[right]] == counts_t[s[right]]:
+                wanted_chars += 1
+
+            right += 1
+
+            # Optimize our window only when condition is fulfilled 
+            while wanted_chars == required:
+                # Set to minimum using the indexes 
+                if right - left < min_len:
+                    min_len = right - left
+
+                    min_left = left
+                    min_right = right
+
+                # Update left window 
+                window[s[left]] -= 1
+
+                # Update whether the window removed was one of the required ones
+                if s[left] in counts_t and window[s[left]] < counts_t[s[left]]:
+                    wanted_chars -= 1
+
+                # Update pointer
+                left += 1
+                
+        return s[min_left:min_right]
