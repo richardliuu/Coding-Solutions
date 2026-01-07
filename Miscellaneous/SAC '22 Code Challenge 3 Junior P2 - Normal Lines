@@ -1,0 +1,15 @@
+coordinates = []
+
+for i in range(2):
+    coords = input().strip().split(" ")
+
+    coordinates.append(coords)
+
+if coordinates[0][1] == coordinates[1][1]:
+    print("x-axis")
+elif coordinates[0][0] == coordinates[1][0]:
+    print("y-axis")
+else:
+    print("neither")
+
+    
