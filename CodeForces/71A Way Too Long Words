@@ -1,0 +1,9 @@
+n = int(input())
+
+for i in range(n):
+    word = str(input()).strip().lower()
+
+    if len(word) < 11:
+        print(word)
+    else:
+        print(str(word[0]) + str(len(word) - 2) + str(word[-1]))
