@@ -1,0 +1,18 @@
+vowels = ["a", "o", "y", "e", "u", "i", "."] 
+
+word = str(input()).strip().lower()
+cons = []
+prev_vowel = False 
+
+for letter in range(len(word)):
+    if word[letter] not in vowels:
+        cons.append(word[letter])
+
+res = "."
+
+for c in range(len(cons)):
+    res += cons[c]
+    if c != len(cons) - 1:
+        res += "."
+
+print(res)
