@@ -1,0 +1,15 @@
+from collections import Counter 
+
+names = Counter()
+
+n = int(input())
+
+for i in range(n):
+    name = str(input())
+
+    names[name] += 1
+
+    if names[name] > 1:
+        print(str(name) + str(names[name] - 1))
+    else:
+        print("OK")
