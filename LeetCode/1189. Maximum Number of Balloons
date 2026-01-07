@@ -1,0 +1,15 @@
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        counts_text = Counter(text)
+        
+        """
+        We return the smallest character because that bottlenecks how many
+        balloon words we can form 
+        """
+        return min(
+            counts_text["b"],
+            counts_text["a"],
+            counts_text["l"] // 2,
+            counts_text["o"] // 2,
+            counts_text["n"],
+        )
