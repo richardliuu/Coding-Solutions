@@ -1,0 +1,17 @@
+import sys
+from collections import Counter
+
+data = sys.stdin.read().strip()
+blocks = data.split("\n\n")
+grids = [block.splitlines() for block in blocks]
+
+for key in grids:
+    converted = ""
+    for edges in key:
+        counts = Counter(edges)
+        converted += str(counts["#"])
+
+    print(converted)
+
+
+
