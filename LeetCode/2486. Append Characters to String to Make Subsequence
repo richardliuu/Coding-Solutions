@@ -1,0 +1,29 @@
+class Solution:
+    def appendCharacters(self, s: str, t: str) -> int:
+        """
+        2 pointers to track the current letter in t to ensure reading 
+        """
+        
+        read_t = 0 
+
+        """
+        t: c | s: c
+        t: o | s: o
+        t: d | s: a
+        t: d | s: c
+        t: d | s: h
+        t: d | s: i
+        t: d | s: n
+        t: d | s: g
+        """
+        print(t)
+        print(len(t))
+
+        for letter in range(len(s)):
+            print(t[read_t])
+            if s[letter] == t[read_t]:
+                read_t += 1 
+            if read_t == len(t):
+                break
+            
+        return len(t[read_t:])
