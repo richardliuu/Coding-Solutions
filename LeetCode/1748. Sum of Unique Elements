@@ -1,0 +1,11 @@
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        counts = Counter(nums)
+        total = 0 
+
+        for i in counts:
+            if counts[i] == 1:
+                total += i
+
+        return total
+        
