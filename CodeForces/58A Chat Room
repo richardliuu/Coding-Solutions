@@ -1,0 +1,19 @@
+s = str(input()).strip()
+
+word = "hello"
+read = 0
+formed = ""
+
+for index in range(len(s)):
+    if read < len(word) and s[index] == word[read]:
+        formed += s[index]
+        read += 1 
+
+if formed == word:
+    print("YES")
+else:
+    print("NO")
+    
+        
+        
+
