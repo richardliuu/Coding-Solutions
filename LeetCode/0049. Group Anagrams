@@ -1,0 +1,15 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        # Sets a list to be the default item in the dictionary 
+        grouped = defaultdict(list)
+
+        for item in strs:
+            # Turn the anagram into a string 
+            anagram = "".join(sorted(item))
+
+            # Append the anagram to a list or its own list 
+            grouped[anagram].append(item)
+                
+        return list(grouped.values())
+
+        
