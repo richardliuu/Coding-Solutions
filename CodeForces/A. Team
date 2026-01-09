@@ -1,0 +1,13 @@
+from collections import Counter
+
+n = int(input())
+problems = 0
+
+for i in range(n):
+    verdict = str(input()).split(" ")
+    counts = Counter(verdict)
+
+    if counts["1"] > 1:
+        problems += 1
+
+print(problems)
