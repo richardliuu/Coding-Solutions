@@ -1,0 +1,23 @@
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        """
+        Pointer and compare the 2 strings 
+        """
+        
+        read = 0 
+        required = "" 
+        
+        for element in range(len(t)):
+            if read <= len(s) - 1:
+                print(read)
+                print(t[element], s[read])
+                if t[element] == s[read]:
+                    required += t[element]
+                    read += 1 
+
+        print("r", required)
+
+        if required == s:
+            return True
+        else:
+            return False 
