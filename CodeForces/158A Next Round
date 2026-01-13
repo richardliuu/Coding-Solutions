@@ -1,0 +1,11 @@
+n, score = map(int, input().split())
+scores = list(map(int, input().split()))
+
+amount = 0 
+
+for key, value in enumerate(scores):
+    if value > 0:
+        if value >= scores[score-1]:
+            amount += 1
+
+print(amount)
