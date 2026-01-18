@@ -1,0 +1,26 @@
+class Solution:
+    def numRescueBoats(self, people: List[int], limit: int) -> int:
+        s_p = sorted(people)
+        left = 0 
+        right = len(s_p) - 1
+        boats = 0 
+
+        """
+        In a sorted array, we can eliminate numbers equal to or less than the limit 
+        through the weight or 2 person condition. We try to match maximum weights and minimum weights 
+        by converging to the middle (maximize boats that can hold 2 people)
+        """
+
+        while left <= right:
+            # If 2 people and fits the limit 
+            if s_p[left] + s_p[right] <= limit:
+                left += 1 
+
+            boats += 1
+            right -= 1
+
+        return boats
+
+            
+            
+        
