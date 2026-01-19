@@ -1,0 +1,32 @@
+class Solution:
+    def dividePlayers(self, skill: List[int]) -> int:
+        sor_skills = sorted(skill)
+        right = len(skill) - 1
+        left = 0 
+        last_skill = int(sor_skills[0]) + int(sor_skills[-1])
+        chemistry = 0
+
+        """
+        We will have pairs and the total skill of each pair is the sum. The chemistry is 
+        the sum of the product of the skills within
+
+        We can begin by greedily matching the weakest and strongest player 
+        """
+
+        print(sor_skills)
+
+        while left < right: 
+            l_s = int(sor_skills[left])
+            r_s = int(sor_skills[right])
+            if l_s + r_s == last_skill:
+                chemistry += l_s * r_s
+            else:
+                return -1
+
+            left += 1
+            right -= 1 
+
+        return chemistry 
+
+ 
+        
