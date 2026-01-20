@@ -1,0 +1,15 @@
+class Solution:
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+
+      """
+      Cheesed and not auxiliary space 
+      """
+        counts = Counter(nums)
+        seen = set()
+
+        for i in range(len(nums)):
+            if counts[nums[i]] == 2 and nums[i] not in seen:
+                seen.add(nums[i])
+
+        return list(seen)
+        
