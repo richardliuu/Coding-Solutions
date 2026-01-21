@@ -1,0 +1,17 @@
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        consonants = "bcdfghjklmnpqrstvwyxz"
+        vowels = "aeiou"
+        counts_s = Counter(s)
+        frequency = 0 
+        max_vowels = 0 
+        max_cons = 0 
+
+        for element in range(len(s)):
+            if s[element] in vowels and counts_s[s[element]] > max_vowels:
+                max_vowels = max(max_vowels, counts_s[s[element]])
+            elif s[element] in consonants and counts_s[s[element]] > max_cons:
+                max_cons = max(max_cons, counts_s[s[element]])
+
+        return max_vowels + max_cons
+        
