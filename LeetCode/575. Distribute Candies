@@ -1,0 +1,16 @@
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        length  = len(candyType)
+
+        # Do for integer division and avoid decimals
+        eatable = length // 2
+
+        unique = len(set(candyType))
+
+        if unique == eatable:
+            return unique 
+        elif unique > eatable:
+            return eatable
+        else:
+            return unique 
+        
