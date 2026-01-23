@@ -1,0 +1,38 @@
+class Solution:
+    def isStrictlyPalindromic(self, n: int) -> bool:
+        def bases(num, base):
+            """
+            5 % 2 = 1 |  5 // 2 = 2 |  binary = "1"
+            2 % 2 = 0 |  2 // 2 = 1 | binary ="01"
+            1 % 2 = 1 |  1 // 2 = 0 | binary = "101"
+            """
+            binary = ""
+
+            if num == "0":
+                return "0"
+
+            while num > 0:
+                # Get remainder 
+                remainder = num % base
+                # Add remainder from left side 
+                binary = str(remainder) + binary 
+                # Reduce the number using integer division
+                num //= base
+
+            return binary
+
+        for base in range(n - 2, n):
+            string = bases(n, base)
+
+            if string != string[0:0:-1]:
+                return False
+                
+        return True
+
+# ONE LINER 
+class Solution:
+    def isStrictlyPalindromic(self, n: int) -> bool:
+        return False 
+
+
+        
