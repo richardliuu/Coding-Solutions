@@ -1,0 +1,13 @@
+burgers = [461, 431, 420, 0]
+sides = [100, 57, 70, 0]
+drinks = [130, 160, 118, 0]
+desserts = [167, 266, 75, 0]
+
+b = int(input())
+s = int(input())
+dr = int(input())
+ds = int(input())
+
+calories = burgers[b-1] + drinks[dr-1] + sides[s-1] + desserts[ds-1]
+
+print("Your total Calorie count is %s." % calories)
