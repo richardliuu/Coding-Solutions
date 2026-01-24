@@ -1,0 +1,21 @@
+class Solution:
+    def vowelConsonantScore(self, s: str) -> int:
+        import math 
+        vowels = "aeiou"
+        consonants = "bcdfghjklmnpqrstvwxyz"
+        v = 0
+        c = 0 
+
+        for letter in range(len(s)):
+            if s[letter] in vowels:
+                v += 1
+            elif s[letter] in consonants:
+                c += 1
+
+        if c <= 0:
+            return 0
+
+        score = v / c
+         
+        return math.floor(score)
+        
