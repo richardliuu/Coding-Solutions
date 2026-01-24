@@ -1,0 +1,21 @@
+class Solution:
+    def sortVowels(self, s: str) -> str:
+        vowels = "aeiou" 
+        extracted = [] 
+        pointer = 0
+        res = []
+
+        for letter in range(len(s)):
+            if s[letter].lower() in vowels:
+                extracted.append(s[letter])
+
+        extracted.sort()
+        
+        for letter in range(len(s)):
+            if s[letter].lower() in vowels and pointer <= len(extracted):
+                res.append(extracted[pointer])
+                pointer += 1
+            else:
+                res.append(s[letter])
+                
+        return "".join(res)
