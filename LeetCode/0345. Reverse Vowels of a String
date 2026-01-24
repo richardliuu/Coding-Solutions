@@ -1,0 +1,26 @@
+class Solution:
+    def reverseVowels(self, s: str) -> str:
+        vowels = "aeiou"
+        right = len(s) - 1
+        left = 0 
+        lst = list(s)
+
+        while left <= right:
+            if lst[left].lower() in vowels and lst[right].lower() in vowels:
+                temp_l = lst[left]
+                temp_r = lst[right]
+                lst[left] = temp_r
+                lst[right] = temp_l
+                right -= 1 
+                left += 1
+            elif lst[left].lower() in vowels and lst[right].lower() not in vowels:
+                right -= 1
+            elif lst[left].lower() not in vowels and lst[right].lower() in vowels:
+                left += 1
+            else:
+                right -= 1
+                left += 1
+
+        return "".join(lst)
+
+               
