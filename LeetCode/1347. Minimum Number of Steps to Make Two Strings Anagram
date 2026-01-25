@@ -1,0 +1,43 @@
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        """
+        Want to loop over all characters at once, and not handle their frequencies every time we see them
+
+        Get the frequency of all characters in a list to process sequentially 
+        """ 
+        counts_s = [0] * 26 
+        counts_t = [0] * 26 
+        steps = 0 
+
+        for char in s:
+            """
+            Add to the frequency found at that index
+            using the ord(char) - ord("a") or 97 to access
+            the corresponding list index 
+            """
+            counts_s[ord(char) - 97] += 1 
+
+        for char in t: 
+            """
+            Add to the frequency found at that index
+            using the ord(char) - ord("a") or 97 to access
+            the corresponding list index 
+            """
+            counts_t[ord(char) - 97] += 1
+
+        for index in range(26):
+            steps += abs(counts_t[index] - counts_s[index])
+
+        print(counts_s)
+        print(counts_t)
+
+        """
+        Divide by 2 because when we bring a char over that is only 1 step but counted as 
+        subtracting from s and adding to t. This makes it count double as much
+        """
+        return steps // 2
+
+
+
+
+        
