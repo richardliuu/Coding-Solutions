@@ -1,0 +1,10 @@
+class Solution:
+    def maxDistinct(self, s: str) -> int:
+        """
+        The amount of substrings is determined by the amount 
+        of distinct characters we have 
+
+        Distinct characters are the only substring starters that we care about 
+        """
+        return len(set(s))
+        
