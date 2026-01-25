@@ -1,0 +1,27 @@
+class Solution:
+    def stringHash(self, s: str, k: int) -> str:
+        res = ""
+        sub_strs = [] 
+        read = 0 
+        string = "" 
+
+        while read < len(s):
+            string += s[read]
+            if len(string) == k:
+                sub_strs.append(string)
+                string = ""
+                
+            read += 1 
+
+        # Set up the loop here
+        for sub in sub_strs:
+            total_hash = 0
+            for l in sub:
+                # Converting to the hash value can be done by ord() - 97
+                total_hash += ord(l) - 97
+
+            # Reverse ord and get the char 
+            res += chr((total_hash % 26) + 97) 
+
+        return res 
+        
