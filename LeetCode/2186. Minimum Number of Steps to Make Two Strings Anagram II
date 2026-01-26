@@ -1,0 +1,25 @@
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        """
+        Unlike the first version of this problem, we would not have to divide steps by 2 
+        because an operation is only 1 append
+        """
+        counts_s = [0] * 26
+        counts_t = [0] * 26
+        steps = 0 
+
+        # Get all frequency of characters in ordered array for easy math operations
+        for char in s:
+            counts_s[ord(char) - ord("a")] += 1 
+
+        for char in t:
+            counts_t[ord(char) - ord("a")] += 1 
+
+        # Calculate steps 
+        for index in range(26):
+            steps += abs(counts_s[index] - counts_t[index])
+
+        return steps
+
+        
+        
