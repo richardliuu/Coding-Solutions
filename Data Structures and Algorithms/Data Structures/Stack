@@ -1,0 +1,26 @@
+class Stack:
+		""" Class for generic stack"""
+    def __init__(self):
+        self.stack = []
+        
+    def push(self, val: int) -> None:
+		    # Append to stack (list) 
+        self.stack.append(val)
+
+    def pop(self) -> None:
+        # Removes last element in O(1) 
+        if self.stack.isEmpty():
+		        return None
+        return self.stack.pop()
+        
+    def isEmpty(self) -> bool:
+		    # Check whether the length of the stack is 0
+		    return len(self.stack) == 0 
+
+    def top(self) -> int:
+		    # Get element at index -1 
+        return self.stack[-1]
+
+    def get_size(self) -> int:
+		    # get length of the stack for size
+		    return len(self.stack)
