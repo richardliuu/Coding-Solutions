@@ -1,0 +1,39 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        Beginning with the first node, we want to reroute the next pointer to be 
+        behind the current pointer 
+        """
+        prev = None
+        curr = head
+
+        while curr:
+            # Set a variable for the next pointer 
+            nxt = curr.next
+
+            """
+            Reroute the pointer 
+
+            Take the input 1 -> 2 -> 3
+
+            1.next = None | so 1 points to None 
+            2.next = 1 | 2 points to 1 because we have iterated by setting the previous equal the current and updating the current to nxt 
+            3.next = 2 | 3 points to 2 
+
+            With the input we will have reversed the pointers 
+            """
+            curr.next = prev
+
+            # Set the new previous to the current node
+            prev = curr
+
+            # Update the future current to be the next node
+            curr = nxt
+
+        # Reroute prev to be the new head of the list 
+        return prev
