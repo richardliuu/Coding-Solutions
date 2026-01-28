@@ -1,0 +1,52 @@
+seen = {
+    (0, -1), (0, -2), (0, -3),
+    (1, -3), (2, -3), (3, -3),
+    (3, -4), (3, -5), (4, -5), 
+    (5, -5), (5, -4), (5, -3), 
+    (6, -3), (7, -3), (7, -4), 
+    (7, -5), (7, -6), (7, -7), 
+    (6, -7), (5, -7), (4, -7), 
+    (3, -7), (2, -7), (1, -7), 
+    (0, -7), (-1, -7), (-1, -6), 
+    (-1, -5)
+}
+
+hit = False
+
+# Start positions 
+x = -1
+y = -5 
+
+while True:
+    command = str(input())
+    direction, num = command.split()
+
+    # Convert to integer 
+    num = int(num)
+
+    if direction == "q" and num == 0:
+        break
+
+    for times in range(num):    
+        if direction == "r":
+            x += 1
+        elif direction == "l":
+            x -= 1
+        elif direction == "u":
+            y += 1
+        elif direction == "d":
+            y -= 1
+
+        if (x, y) in seen:
+            hit = True
+
+        # Track all prev positions
+        seen.add((x, y))
+
+    if hit:
+        print(f"{x} {y} DANGER")
+        break
+    else:
+        print(f"{x} {y} safe")
+
+
