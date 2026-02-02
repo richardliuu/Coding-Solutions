@@ -1,0 +1,39 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
+        """
+        Can just modify one tree by merging values and return one tree with the updated values 
+
+        Cases: 
+        - Root1 node exists but Root2 node does not (vice versa)
+
+        We want to return the tree itself, meaning the root node 
+        """
+        # Empty tree 
+        if not root1 and not root2:
+            return 
+        """
+        Root1 does not exist so we must use the root2 as our tree to continue searching.
+        This also means that there is nothing to merge.
+        """
+        if not root1 and root2:
+            return root2
+        # Same thing 
+        if root1 and not root2:
+            return root1
+            
+        # Only need to return one tree so modify root1 only 
+        root1.val = root1.val + root2.val
+
+        # Traverse on both branches 
+        root1.left = self.mergeTrees(root1.left, root2.left)
+        root1.right = self.mergeTrees(root1.right, root2.right)
+
+        # Return root1 but both roots exist. Could just need to change root1 updates to root2 instead
+        return root1
+        
