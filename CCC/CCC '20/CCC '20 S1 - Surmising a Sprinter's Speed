@@ -1,0 +1,22 @@
+n = int(input())
+times = [] 
+d = {}
+speed = 0 
+
+for i in range(n):
+    time, distance = map(int, input().split())
+    times.append(time)
+    d[time] = distance 
+
+times.sort()
+#print(d)
+#print(times)
+# Speed = distance / time 
+for t in range(1, len(times)):
+    new_speed = abs(d[times[t]] - d[times[t-1]]) / abs(times[t] - times[t-1])
+    speed = max(speed, new_speed)
+
+print(speed)
+
+    
+
