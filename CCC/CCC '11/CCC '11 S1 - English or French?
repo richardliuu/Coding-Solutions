@@ -1,0 +1,18 @@
+from collections import Counter
+n = int(input())
+
+texts = []
+
+for i in range(n):
+    text = input().lower()
+    texts.append(text)
+
+joined = "".join(texts)
+counts = Counter(joined)
+
+if counts["s"] == counts["t"]:
+        print("French")
+elif counts["s"] > counts["t"]:
+    print("French")
+elif counts["s"] < counts["t"]:
+    print("English")
