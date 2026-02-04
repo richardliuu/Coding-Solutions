@@ -1,0 +1,24 @@
+n = int(input())
+
+choices = []
+answers = [] 
+
+# Student responses 
+for i in range(n):
+    choice = input()
+    choices.append(choice)
+
+# Teacher responses:
+for i in range(n):
+    answer = input()
+    answers.append(answer)
+    
+score = 0 
+pointer = 0
+while pointer < len(answers):
+    if answers[pointer] == choices[pointer]:
+        score += 1
+
+    pointer += 1 
+
+print(score)
