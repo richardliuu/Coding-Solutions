@@ -1,0 +1,48 @@
+"""
+NOT THE OPTIMAL SOLUTION (FAILS FOR INPUT IN THE MILLIONS)
+"""
+
+m = int(input())
+n = int(input())
+k = int(input())
+
+pattern = [["B" for i in range(n)] for i in range(m)]
+g_counts = 0 
+
+# Keep a count of G throughout changing to avoid computation each time 
+# Switch all B's to G's and G's to B's in the row
+# Keep a count of G meanwhile 
+
+for i in range(k):
+    d, pos = map(str, input().split())
+    pos = int(pos)
+
+    # ====== There is a bug where the G's are being removed all throughout the matrix
+    if d == "R":
+        for col in range(len(pattern[pos-1])):
+            # Count the number of G's
+            if pattern[pos-1][col] == "B":
+                pattern[pos-1][col] = "G"
+
+                # Add to g_counts
+                g_counts += 1
+            else:
+                pattern[pos-1][col] = "B"
+                # Remove a g
+                g_counts -= 1
+    if d == "C":
+        # Might have to loop range len instead
+        for row in range(len(pattern)):
+            if pattern[row][pos-1] == "B":
+                pattern[row][pos-1] = "G"
+                
+                # Add to g
+                g_counts += 1 
+            else:
+                pattern[row][pos-1] = "B"
+                g_counts -= 1
+
+print(g_counts)
+
+                
+
