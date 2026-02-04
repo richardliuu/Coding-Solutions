@@ -1,0 +1,27 @@
+operations = input().split()
+stack = []
+
+for op in operations:
+    if op in "*/+-%^":
+        # Top of stack but second 
+        b = stack.pop()
+        # Bottom of stack but first number to deal with
+        a = stack.pop()
+
+        if op == "*":
+            stack.append(a * b)
+        elif op == "/":
+            stack.append(a / b)
+        elif op == "+":
+            stack.append(a + b)
+        elif op == "-":
+            stack.append(a - b)
+        elif op == "%":
+            stack.append(a % b)
+        elif op == "^":
+            stack.append(a ** b)
+    else:
+        stack.append(float(op))
+
+print(stack[-1])
+
