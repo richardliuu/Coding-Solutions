@@ -1,0 +1,15 @@
+n = int(input())
+amounts = 0
+
+seen = set()
+
+for left in range(0, 6):
+    for right in range(0, 6):
+        if left < right:
+            break
+        if left + right == n:
+            #print(left, right)
+            amounts += 1
+
+print(amounts)
+
