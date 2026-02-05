@@ -1,0 +1,15 @@
+n = int(input())
+stack = []
+
+for i in range(n):
+    line = int(input())
+
+    if line == 0:
+        if stack:
+            stack.pop()
+
+    else:
+        stack.append(line)
+
+print(sum(stack))
+
