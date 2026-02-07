@@ -1,0 +1,54 @@
+a = 0 
+b = 0 
+
+def get(var, a, b):
+    
+    if var == "A":
+        return int(a)
+    
+    return int(b) 
+
+def set_var(var, value, a, b):
+    if var == "A":
+        a = value
+    else:
+        b = value
+    return a, b
+
+while True:
+    instruction = input().strip().split()
+
+    if instruction[0] == "7":
+        break
+
+    if instruction[0] == "1":
+        curr = instruction[1]
+        if curr == "A":
+            a = int(instruction[2])
+        else:
+            b = int(instruction[2])
+    elif instruction[0] == "2":
+        curr = instruction[1]
+        if curr == "A":
+            print(a)
+        else:
+            print(b)
+    elif instruction[0] in {"3", "4", "5", "6"}:
+        X = instruction[1]
+        Y = instruction[2]
+
+        x = get(X, a, b)
+        y = get(Y, a, b)
+
+        if instruction[0] == "3":
+            result = x + y
+            a, b = set_var(X, result, a, b)
+        elif instruction[0] == "4":
+            result = x * y  
+            a, b = set_var(X, result, a, b)
+        elif instruction[0] == "5":
+            result = x - y
+            a, b = set_var(X, result, a, b)
+        elif instruction[0] == "6":
+            result = x // y
+            a, b = set_var(X, result, a, b)
