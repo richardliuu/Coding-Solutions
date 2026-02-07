@@ -1,0 +1,36 @@
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        left = 0 
+        right = len(nums) - 1
+        ans_1 = -1 
+        ans_2 = -1 
+
+        # Keep searching as left as possible and as right as possible
+        # We don't want to settle with one value so we continue to search until left and right
+        # converges 
+    
+        # First occurrence  
+        while left <= right:
+            mid = (left + right) // 2
+
+            if nums[mid] >= target:
+                if nums[mid] == target:
+                    ans_1 = mid 
+                right = mid - 1
+            else:
+                left = mid + 1
+
+        left = 0 
+        right = len(nums) -1
+
+       # Second occurrence  
+        while left <= right:
+            mid = (left + right) // 2 
+            if nums[mid] <= target:
+                if nums[mid] == target:
+                    ans_2 = mid 
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return [ans_1, ans_2]       
