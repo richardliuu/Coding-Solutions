@@ -1,0 +1,21 @@
+n = int(input().strip())
+
+# Start from range n to 10,000
+
+def unique(num):
+    num = str(num)
+    if len(set(num)) == len(num):
+        return True 
+
+    return False 
+
+found = False
+
+num = n + 1
+
+while not found:
+    if unique(num):
+        print(num)
+        found = True
+
+    num += 1
