@@ -1,0 +1,17 @@
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        left = 0 
+        right = len(nums) - 1
+
+        # We do not want left and right to converge because of an infinite loop
+        # We are also not given a target value 
+        while left < right:
+            mid = (left + right) // 2
+
+            if nums[mid] <= nums[right]:
+                right = mid
+            else:
+                left = mid + 1
+
+        # Left is where the lower element exists, not mid 
+        return nums[left]
