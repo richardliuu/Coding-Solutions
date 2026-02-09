@@ -1,0 +1,27 @@
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        """
+        #0            4
+        [1, 4, 7, 11, 15]
+        [2, 5, 8, 12, 19]
+        [3, 6, 9, 16, 22]
+        [10, 13, 14, 17, 24]
+        [18, 21, 23, 26, 30]
+        """
+
+        # Arrays
+        arr = 0 
+        end = len(matrix[arr]) - 1
+
+        while arr < len(matrix) and end >= 0:
+            # Curr needs to be updated inside 
+            curr = matrix[arr][end]
+            if curr == target:
+                return True
+            elif curr > target:
+                end -= 1
+            else:
+                arr += 1 
+
+        return False 
+        
