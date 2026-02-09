@@ -1,0 +1,38 @@
+class Solution:
+    def search(self, nums: List[int], target: int) -> bool:
+        left = 0 
+        right = len(nums) - 1
+
+        while left <= right:
+            # Check for duplicates
+            while left < right and nums[left] == nums[left+1]:
+                left += 1
+            while right > left and nums[right] == nums[right-1]:
+                right -= 1 
+
+            # Take the mid after the adjustments
+            mid = (left + right) // 2
+
+            if nums[mid] == target:
+                return True
+            elif nums[left] < nums[mid]:
+                if nums[left] <= target < nums[mid]:               
+                    # Reduce search space with right
+                    right = mid - 1
+                else:
+                    # Target is not within this range
+                    left = mid + 1
+            elif nums[mid] < nums[right]:
+                if nums[mid] < target <= nums[right]:
+                    # Bring left to the middle to reduce search space
+                    left = mid + 1
+                else:   
+                    # Not found in this array range
+                    right = mid - 1
+
+            # Shrink the search space 
+            else:
+                left += 1
+
+        return False 
+        
