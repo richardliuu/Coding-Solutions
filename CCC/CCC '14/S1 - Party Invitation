@@ -1,0 +1,25 @@
+k = int(input())
+m = int(input())
+
+inv = []
+for i in range(1, k+1):
+    inv.append(i)
+#print(inv)
+
+order = [] 
+
+for i in range(m):
+    pos = int(input())
+    
+    temp = [] 
+    for i in range(len(inv)):
+        #print(i)
+        #print(inv)
+        if (i + 1) % pos != 0:
+            temp.append(inv[i])
+            pass
+        
+    inv = temp
+
+for num in inv:
+    print(num)
