@@ -1,0 +1,14 @@
+class Solution:
+    def removeStars(self, s: str) -> str:
+        """
+        Use the stack to track the current state of the characters 
+        """
+        stack = []
+        
+        for char in s:
+            if char == "*":
+                stack.pop()
+            else:
+                stack.append(char)
+
+        return "".join(stack)
