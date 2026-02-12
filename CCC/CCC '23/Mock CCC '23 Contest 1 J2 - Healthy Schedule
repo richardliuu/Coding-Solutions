@@ -1,0 +1,18 @@
+s = int(input())
+w = int(input())
+
+bad = False
+if s > 23 or s < 20:
+    bad = True
+    print("Unhealthy")
+elif w > 9 or w < 6:
+    bad = True
+    print("Unhealthy")
+
+time = (24 - s) + w
+
+if not bad:
+    if time <= 10 and time >= 8:
+        print("Healthy")
+    else:
+        print("Unhealthy")
