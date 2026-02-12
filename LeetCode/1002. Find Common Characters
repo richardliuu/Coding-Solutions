@@ -1,0 +1,20 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        # If there is only one letter 
+        if len(words) < 2:
+            # Return as a list
+            return list(words[0])
+
+        # Store result 
+        res = []
+
+        # Get all distinct chars 
+        word1 = set(words[0])
+
+        # Loop through and check for the min frequency across all words 
+        for char in word1:
+            frequency = min([word.count(char) for word in words])
+            res += [char] * frequency
+
+        return res 
+        
