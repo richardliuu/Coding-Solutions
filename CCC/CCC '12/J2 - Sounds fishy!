@@ -1,0 +1,16 @@
+readings = []
+
+for i in range(4):
+    r = int(input())
+    readings.append(r)
+
+a, b, c, d = readings[0], readings[1], readings[2], readings[3]
+
+if a == b == c == d:
+    print("Fish At Constant Depth")
+elif a < b < c < d:
+    print("Fish Rising")
+elif a > b > c > d:
+    print("Fish Diving")
+else:
+    print("No Fish")
