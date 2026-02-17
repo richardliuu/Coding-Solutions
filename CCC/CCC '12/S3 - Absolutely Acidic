@@ -1,0 +1,32 @@
+from collections import Counter
+
+n = int(input())
+readings = []
+
+for i in range(n):
+    r = int(input())
+    readings.append(r)
+
+counts = Counter(readings)
+
+# First sort by frequency, then sort by value amount to get max
+first_max = max(counts, key=counts.get)
+
+# Create a list to track possible candidates with the same frequency and pull the min and max from
+# first max and second max 
+candidates = []
+for i in counts:
+    if counts[i] == counts[first_max]:
+        first_max = i
+        candidates.append(i)
+
+del counts[first_max]
+second_max = max(counts, key=counts.get)
+candidates_2 = []
+
+for i in counts:
+    if counts[i] == counts[second_max]:
+        second_max = i
+        candidates_2.append(i)
+
+print(max(abs(max(candidates) - min(candidates_2)), abs(max(candidates_2) - min(candidates))))
