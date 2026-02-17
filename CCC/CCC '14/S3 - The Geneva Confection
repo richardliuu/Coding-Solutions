@@ -1,0 +1,43 @@
+t = int(input())
+
+for i in range(t):
+    n = int(input())
+
+    # every car starts at the mountain
+    m_stack = []
+    b_stack = []
+    next_car = 1
+    possible = True 
+
+    for j in range(n):
+        car_num = int(input())
+        m_stack.append(car_num)
+
+    # Cycle between stacks until we reach the required next_car
+
+    # While the last car has not been reached
+    while next_car <= n:
+        # Move to lake
+        if m_stack and m_stack[-1] == next_car:
+            m_stack.pop()
+            next_car += 1
+        # Move to lake 
+        elif b_stack and b_stack[-1] == next_car:
+            b_stack.pop()
+            next_car += 1 
+        # Move to branch
+        elif m_stack:
+            b_stack.append(m_stack.pop())
+        else:
+            possible = False 
+            break
+
+    if possible:
+        print("Y")
+    else:
+        print("N")
+
+    
+
+
+
