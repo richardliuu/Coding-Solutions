@@ -1,0 +1,6 @@
+j = int(input())
+
+if j < 4:
+    print("0")
+else:
+    print(((j-1)*(j-2)*(j-3))//6)
