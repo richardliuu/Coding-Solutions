@@ -1,0 +1,15 @@
+n = int(input())
+david = 100
+antonia = 100 
+
+for i in range(n):
+    d, a = map(int, input().split())
+
+    if d < a:
+        david -= a
+    elif a < d:
+        antonia -= d 
+    
+print(david)
+print(antonia)
+    
