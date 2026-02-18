@@ -1,0 +1,29 @@
+s = input().strip()
+pos = int(input())
+pattern = []
+
+index = 0 
+length = len(s)
+total_len = 0
+
+while index < length:
+    char = s[index]
+    index += 1 
+    num = ""
+    while index < length and s[index].isdigit():
+        num += s[index]
+        index += 1 
+
+    num = int(num)
+    pattern.append((char, num))
+    total_len += num
+
+index = pos % total_len
+
+for char, num in pattern:
+    if index < num:
+        print(char)
+        break
+    else:
+        index -= num
+
