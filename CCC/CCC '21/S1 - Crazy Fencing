@@ -1,0 +1,11 @@
+n = int(input())
+heights = input().split()
+width = input().split()
+area = 0 
+index = 0 
+
+for idx in range(len(heights)-1):
+    area += int(width[index]) * (int(heights[idx]) + int(heights[idx+1]))/2
+    index += 1
+
+print(area)
