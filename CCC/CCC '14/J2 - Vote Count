@@ -1,0 +1,19 @@
+v = int(input())
+word = input()
+
+votes_a = 0
+votes_b = 0
+
+for i in word:
+    if i == "A":
+        votes_a += 1 
+    else:
+        votes_b += 1 
+
+if votes_a > votes_b:
+    print("A")
+elif votes_a < votes_b:
+    print("B")
+else:
+    print("Tie")
+
