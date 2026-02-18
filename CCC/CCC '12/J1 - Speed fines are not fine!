@@ -1,0 +1,13 @@
+lim = int(input())
+speed = int(input())
+
+if speed <= lim:
+    print("Congratulations, you are within the speed limit!")
+else:
+    if speed >= lim + 1 and speed <= lim + 20:
+        print(f"You are speeding and your fine is $100.")
+    elif speed >= lim + 21 and speed <= lim + 30:
+        print(f"You are speeding and your fine is $270.")
+    elif speed >= lim + 31:
+        print(f"You are speeding and your fine is $500.")
+    
