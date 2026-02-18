@@ -1,0 +1,14 @@
+word = input()
+
+allowed = "IOSHZXN"
+good = True
+
+for i in word:
+    if i not in allowed:
+        good = False
+        break
+
+if good:
+    print("YES")
+else:
+    print("NO")
