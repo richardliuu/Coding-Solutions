@@ -1,0 +1,17 @@
+num = int(input())
+num_fours = 0
+num_fives = 0 
+sums = 0
+
+lim = num // 4
+
+while num_fours < lim +1:
+    res = num - (4 * num_fours)
+
+    if res % 5 == 0:
+        #print(res, num_fours)
+        sums += 1 
+
+    num_fours += 1
+
+print(sums)
