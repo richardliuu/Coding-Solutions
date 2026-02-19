@@ -1,0 +1,18 @@
+msg = str(input())
+smiley = 0 
+sad = 0 
+
+for i in range(len(msg) - 2):
+    if msg[i] == ":" and msg[i+1] == "-" and msg[i+2] == ")":
+        smiley += 1 
+    elif msg[i] == ":" and msg[i+1] == "-" and msg[i+2] == "(":
+        sad += 1 
+
+if not smiley and not sad:
+    print("none")
+elif smiley > sad:
+    print("happy")
+elif sad > smiley:
+    print("sad")
+else:
+    print("unsure")
