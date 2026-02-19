@@ -1,0 +1,32 @@
+c = int(input())
+
+top = input().split()
+bot = input().split()
+
+index = 0 
+meters = 0 
+
+for idx in range(len(top)):
+    if top[idx] == "1":
+        meters += 3
+
+for idx in range(len(bot)):
+    if bot[idx] == "1":
+        meters += 3
+
+# Count side
+for idx in range(len(top) - 1):
+    if top[idx] == "1" and top[idx+1] == "1":
+        meters -= 2
+    if bot[idx] == "1" and bot[idx+1] == "1":
+        meters -= 2
+
+# Count top 
+for i in range(0, c, 2):
+    if top[i] == "1" and bot[i] == "1":
+        meters -= 2
+
+print(meters)
+
+
+
