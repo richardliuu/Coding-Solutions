@@ -1,0 +1,28 @@
+class Solution:
+    def totalFruit(self, fruits: List[int]) -> int:
+        max_num = 0 
+        basket = Counter()
+        left = 0 
+        right = 0 
+
+        print(basket)
+
+        while right < len(fruits):
+            fruit = fruits[right]
+
+            basket[fruit] += 1 
+            right += 1
+
+            print(basket)
+
+            while len(basket) > 2:
+                basket[fruits[left]] -= 1 
+                if basket[fruits[left]] == 0:
+                    del basket[fruits[left]]
+                left += 1
+
+            max_num = max(right - left, max_num)
+
+        return max_num
+
+            
