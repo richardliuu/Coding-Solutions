@@ -1,0 +1,26 @@
+class Solution:
+    def maxSubarrayLength(self, nums: List[int], k: int) -> int:
+        # Get max of the dict and if it is greater than k, invalid window
+        left = 0
+        right = 0 
+        longest = 0 
+        counts = Counter()
+
+        for right in range(len(nums)): 
+            counts[nums[right]] += 1
+
+            # Expansion condition 
+            while counts[nums[right]] > k:
+                counts[nums[left]] -= 1
+
+                if counts[nums[left]] == 0:
+                    del counts[nums[left]]
+
+                left += 1 
+
+            longest = max(right - left + 1, longest)
+
+        return longest
+
+        
+        
