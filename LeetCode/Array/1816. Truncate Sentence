@@ -1,0 +1,14 @@
+class Solution:
+    def truncateSentence(self, s: str, k: int) -> str:
+        processed = s.split(" ")
+        truncated = processed[:k]
+
+        res = ""
+
+        for i in range(len(truncated)):
+            res += truncated[i]
+            
+            if i < len(truncated) - 1:
+                res += " "
+        
+        return res
