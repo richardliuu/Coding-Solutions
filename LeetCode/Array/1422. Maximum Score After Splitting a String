@@ -1,0 +1,15 @@
+class Solution:
+    def maxScore(self, s: str) -> int:
+        # Pivot element 
+        score = 0
+
+        for p in range(1, len(s)):
+            left = s[:p]
+            right = s[p:]
+
+            total = left.count("0") + right.count("1")
+            #print(left.count("0"), right.count("1"))
+            score = max(score, total)
+
+        return score
+        
