@@ -1,0 +1,15 @@
+class Solution:
+    def heightChecker(self, heights: List[int]) -> int:
+        index = 0 
+        counts = 0 
+        expected = sorted(heights)
+
+        while index < len(heights):
+            if heights[index] != expected[index]:
+                counts += 1
+
+            index += 1 
+
+        return counts
+            
+        
