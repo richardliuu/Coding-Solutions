@@ -1,0 +1,8 @@
+b = int(input())
+p = int(input())
+t = int(input())
+
+if (p - t) >= b:
+    print("Y", (p - t) - b)
+else:
+    print("N")
