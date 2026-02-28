@@ -1,0 +1,21 @@
+scores = []
+
+s1 = int(input())
+scores.append(s1)
+s2 = int(input())
+scores.append(s2)
+s3 = int(input())
+scores.append(s3)
+s4 = int(input())
+scores.append(s4)
+s5 = int(input())
+scores.append(s5)
+d = int(input())
+
+scores.remove(max(scores))
+scores.remove(min(scores))
+
+print(sum(scores) * d)
+
+
+
