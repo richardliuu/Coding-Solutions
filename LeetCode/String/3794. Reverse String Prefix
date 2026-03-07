@@ -1,0 +1,9 @@
+class Solution:
+    def reversePrefix(self, s: str, k: int) -> str:
+        def reverse(string):
+            return string[::-1]
+        
+        rev = reverse(s[:k])
+        remainder = s[k:]
+
+        return str(rev) + remainder       
