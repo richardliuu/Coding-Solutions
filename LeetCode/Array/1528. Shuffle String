@@ -1,0 +1,11 @@
+class Solution:
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        shuffled = [""] * len(s)
+        pointer = 0 
+
+        for idx in indices:
+            shuffled[idx] = s[pointer]
+            pointer += 1
+
+        return "".join(shuffled)
+        
