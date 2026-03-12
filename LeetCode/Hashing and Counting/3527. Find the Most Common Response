@@ -1,0 +1,16 @@
+class Solution:
+    def findCommonResponse(self, responses: List[List[str]]) -> str:
+        counts = Counter()
+
+        for resp in responses:
+            for daily in set(resp):
+                counts[daily] += 1
+
+        # Highest frequency 
+        highest = max(counts.values())
+        most_common = min(word for word, count in counts.items() if count == highest)
+
+        return most_common
+
+
+        
