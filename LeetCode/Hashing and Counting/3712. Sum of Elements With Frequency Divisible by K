@@ -1,0 +1,11 @@
+class Solution:
+    def sumDivisibleByK(self, nums: List[int], k: int) -> int:
+        counts = Counter(nums)
+        total = 0
+
+        for num in nums:
+            if counts[num] % k == 0:
+                total += num
+
+        return total
+        
