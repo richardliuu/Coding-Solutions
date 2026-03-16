@@ -1,0 +1,12 @@
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        hashmap = {}
+
+        for i, j in zip(names, heights):
+            hashmap[j] = i
+
+        sorted_dict = dict(sorted(hashmap.items(), key = lambda k: k[0], reverse = True))
+
+        return list(sorted_dict.values())
+
+        
