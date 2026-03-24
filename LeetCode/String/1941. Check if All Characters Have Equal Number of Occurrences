@@ -1,0 +1,11 @@
+class Solution:
+    def areOccurrencesEqual(self, s: str) -> bool:
+        counts = Counter(s)
+        t = s.count(s[0])
+
+        for i in s:
+            if counts[i] != t:
+                return False
+
+        return True 
+        
