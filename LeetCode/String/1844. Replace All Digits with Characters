@@ -1,0 +1,16 @@
+class Solution:
+    def replaceDigits(self, s: str) -> str:
+        def shift(c, x):
+            return ord(c) + int(x)
+
+        res = ""
+
+        for i in range(len(s)):
+            if s[i].isdigit():
+                char = shift(s[i-1], s[i])
+                res += chr(char)
+            else:
+                res += s[i]
+
+        return res 
+        
