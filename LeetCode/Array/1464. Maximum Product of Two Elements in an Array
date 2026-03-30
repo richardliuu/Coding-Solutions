@@ -1,0 +1,16 @@
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        max1 = 0 
+        max2 = 0 
+
+        for n in nums:
+            max1 = max(max1, n)
+        
+        nums.remove(max1)
+
+        for n in nums:
+            max2 = max(max2, n)
+        
+        return (max1 -1) * (max2 - 1)
+            
+        
