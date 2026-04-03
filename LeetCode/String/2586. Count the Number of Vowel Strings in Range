@@ -1,0 +1,10 @@
+class Solution:
+    def vowelStrings(self, words: List[str], left: int, right: int) -> int:
+        vowels = set("aeiou")
+        count = 0
+
+        for idx in range(left, right+1):
+            if words[idx][0] in vowels and words[idx][-1] in vowels:
+                count += 1
+
+        return count
