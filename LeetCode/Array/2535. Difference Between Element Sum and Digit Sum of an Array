@@ -1,0 +1,11 @@
+class Solution:
+    def differenceOfSum(self, nums: List[int]) -> int:
+        element = sum(nums)
+        digit_sum = 0 
+
+        for num in nums:
+            for digit in str(num):
+                digit_sum += int(digit)
+
+        return abs(element - digit_sum)
+        
