@@ -1,0 +1,9 @@
+class Solution:
+    def smallestEvenMultiple(self, n: int) -> int:
+        i = n
+
+        while i % n != 0 or i % 2 != 0:
+            i += n 
+
+        return i 
+        
