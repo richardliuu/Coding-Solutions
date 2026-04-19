@@ -1,0 +1,11 @@
+class Solution:
+    def toggleLightBulbs(self, bulbs: list[int]) -> list[int]:
+        res = [] 
+        counts = Counter(bulbs)
+
+        for bulb, amount in counts.items():
+            if amount % 2 == 1:
+                res.append(bulb)
+                
+        return sorted(res)
+        
