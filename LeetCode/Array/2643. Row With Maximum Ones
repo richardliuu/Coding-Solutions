@@ -1,0 +1,17 @@
+class Solution:
+    def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
+        highest = 0 
+        idx = 0
+
+        for row in range(len(mat)):
+            counts = mat[row].count(1)
+            
+            print(counts)
+            if highest < counts:
+                idx = row
+                highest = counts
+
+        return [idx, highest]
+
+        
+        
