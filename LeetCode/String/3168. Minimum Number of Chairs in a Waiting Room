@@ -1,0 +1,15 @@
+class Solution:
+    def minimumChairs(self, s: str) -> int:
+        curr = 0
+        highest = 0
+
+        for i in s:
+            if i == "E":
+                curr += 1
+            else:
+                curr -= 1
+
+            if curr > highest:
+                highest = curr
+
+        return highest
