@@ -1,0 +1,5 @@
+class Solution:
+    def mirrorDistance(self, n: int) -> int:
+        r = "".join(reversed(str(n)))
+        return abs(n - int(r))
+        
