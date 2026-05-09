@@ -1,0 +1,9 @@
+class Solution:
+    def minLengthAfterRemovals(self, s: str) -> int:
+        # There are only a's and b's
+        # a and b will always be adjacent
+        counts_a = s.count("a")
+        counts_b = s.count("b")
+        
+        return abs(counts_a - counts_b)
+        
