@@ -1,0 +1,17 @@
+class Solution:
+    def maxDifference(self, s: str) -> int:
+        """
+        Get the highest even frequency and lowest odd frequency or 
+        highest odd frequency and lowest even frequency
+        """
+        
+        evens = []
+        odds = [] 
+
+        for i in s:
+            if s.count(i) % 2 == 0:
+                evens.append(s.count(i))
+            else:
+                odds.append(s.count(i))
+
+        return max(odds) - min(evens)
