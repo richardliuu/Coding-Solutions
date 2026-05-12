@@ -1,0 +1,18 @@
+word = str(input())
+
+vowels = "aeiou"
+
+pronounceable = True
+
+for i in range(len(word) - 1):
+    if word[i] in vowels and word[i+1] in vowels:
+        pronounceable = False
+        break
+    elif word[i] not in vowels and word[i+1] not in vowels:
+        pronounceable = False
+        break
+
+if pronounceable:
+    print("YES")
+else:
+    print("NO")
