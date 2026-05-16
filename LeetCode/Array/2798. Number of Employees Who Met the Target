@@ -1,0 +1,9 @@
+class Solution:
+    def numberOfEmployeesWhoMetTarget(self, hours: List[int], target: int) -> int:
+        counts = 0 
+        
+        for h in hours:
+            if h >= target:
+                counts += 1 
+
+        return counts 
