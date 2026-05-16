@@ -1,0 +1,9 @@
+import math
+
+p, c, v = map(int, input().split())
+
+pep = math.ceil(p/3)
+cheese = math.ceil(c/3)
+veg = math.ceil(v/3)
+
+print(int(pep + cheese + veg))
