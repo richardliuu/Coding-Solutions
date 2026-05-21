@@ -1,0 +1,22 @@
+read = open("shell.in")
+
+# Number of swaps that occur 
+n = int(read.readline())
+
+# Bessie choose between 2 shells a and b
+shell_pos = [i for i in range(3)]
+counter = [0 for i in range(3)]
+
+for i in range(n):
+    # Parse data from the file 
+    # G is the guess 
+    a, b, g = [int(i) - 1 for i in read.readline().split()]
+
+    # Make the swap between a and b 
+    shell_pos[a], shell_pos[b] = shell_pos[b], shell_pos[a]
+
+    # Count the amount of times she guesses for a shell
+    # Max is the one she guesses most 
+    counter[shell_pos[g]] += 1
+
+print(max(counter), file=open("shell.out", "w"))
