@@ -1,0 +1,42 @@
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        positive = True
+        
+        for i in s:
+            if i == " ":
+                s = s[1:]
+            else:
+                break
+
+        if s:
+            if s[0] == "-":
+                positive = False
+                s = s[1:]
+            elif s[0] == "+":
+                s = s[1:]
+
+        res = ""
+
+        for i in s:
+            if i.isdigit():
+                res += i
+            else:
+                break
+
+        if len(res) >= 1:
+            if abs(int(res)) > abs(2**31) - 1:
+                if not positive:
+                    res = -2 ** 31
+                    return res
+                else:
+                    res = 2**31 - 1
+                    return res
+            else:
+                if not positive:
+                    return int(res) * -1
+                else:
+                    return int(res)
+        
+        return 0
+
+        
