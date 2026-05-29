@@ -1,0 +1,19 @@
+import sys 
+
+n, m, k = map(int, sys.stdin.readline().split())
+
+"""
+Read character by character and append by the multiplier 
+"""
+
+for i in range(n):
+    signal = str(sys.stdin.readline().strip())
+
+    res = ""
+
+    for char in signal:
+        res += char * k
+    
+    # Also need to write it k times 
+    for i in range(k):
+        sys.stdout.write(res + "\n")
