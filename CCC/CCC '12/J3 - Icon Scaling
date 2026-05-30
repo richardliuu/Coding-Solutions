@@ -1,0 +1,21 @@
+"""
+Fixed input:
+*x*
+ xx
+* *
+"""
+
+import sys 
+
+k = sys.stdin.readline()
+icon = ["*x*", " xx", "* *"]
+
+for i in icon:
+    #print(i)
+    res = ""
+    for char in str(i):
+        res += str(char) * int(k) 
+
+    for j in range(int(k)):
+        sys.stdout.write(str(res) + "\n")
+
