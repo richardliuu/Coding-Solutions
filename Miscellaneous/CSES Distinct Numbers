@@ -1,0 +1,6 @@
+import sys 
+
+n = int(sys.stdin.readline())
+nums = sys.stdin.readline().split()
+
+print(len(set(nums)))
