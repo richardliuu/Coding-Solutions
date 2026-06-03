@@ -1,0 +1,21 @@
+import sys 
+
+weight = int(sys.stdin.readline())
+n_cars = int(sys.stdin.readline())
+cars = [int(sys.stdin.readline()) for i in range(n_cars)]
+
+car_weight = 0 
+car_count = 0 
+
+for car_num in range(len(cars)):
+    car_weight += cars[car_num]
+
+    if car_num >= 4:
+        car_weight -= cars[car_num-4]
+
+    if car_weight > weight:
+        break
+    
+    car_count += 1
+
+print(car_count)
