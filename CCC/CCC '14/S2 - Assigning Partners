@@ -1,0 +1,35 @@
+import sys 
+
+n = int(sys.stdin.readline())
+
+# 2 lines 
+line1 = sys.stdin.readline().split()
+line2 = sys.stdin.readline().split()
+
+name_dict = {}
+
+for idx in range(n):
+    name_dict[line1[idx]] = line2[idx]
+
+
+good = True
+
+for name in name_dict:
+    partner = name_dict[name]
+
+    # Means the same person
+    if name == partner:
+        good = False
+        break
+    
+    # Not properly matched 
+    if name_dict[partner] != name:
+        good = False
+        break
+
+print("good" if good else "bad")
+
+
+
+
+
