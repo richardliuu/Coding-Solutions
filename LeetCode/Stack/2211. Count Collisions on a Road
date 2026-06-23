@@ -1,0 +1,38 @@
+class Solution:
+    def countCollisions(self, directions: str) -> int:
+        score = 0 
+        stack = []
+        """
+        Cases: RL, SL, or RS, instead of popping, we increase
+        the score and turn the impacted elements into S 
+        """
+
+        """
+        stack = [] --> stack.append(R) --> ["R"]
+        i == "L" --> score = 2 --> [R, S]
+        i == "R" --> score = 2 --> [R, S, R]
+        """
+
+        for i in directions:
+            curr = i
+            while stack and (
+                (curr == "L" and stack[-1] == "R") or 
+                (curr == "L" and stack[-1] == "S") or 
+                (curr == "S" and stack[-1] == "R")
+            ):
+
+                if curr == "L" and stack[-1] == "R":
+                    score += 2 
+                    stack.pop()
+                    curr = "S"
+                elif curr == "L" and stack[-1] == "S":
+                    score += 1
+                    stack.pop()
+                    curr = "S"
+                elif curr == "S" and stack[-1] == "R":
+                    score += 1
+                    stack.pop()
+
+            stack.append(curr)
+
+        return score
