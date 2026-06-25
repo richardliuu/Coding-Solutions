@@ -1,0 +1,17 @@
+nums = int(input())
+arr = input().split()
+arr = list(arr)
+
+count_odd = 0 
+count_even = 0
+
+for i in arr:
+    if int(i) % 2 == 0:
+        count_even += 1 
+    else:
+        count_odd += 1 
+
+if nums % 2 == 0 and count_odd > nums/2:
+    print("Todd")
+else:
+    print("Steven")
