@@ -1,0 +1,47 @@
+import sys 
+
+word = sys.stdin.readline()
+res = ""
+
+# Keep something to track the distance between characters
+pos = {
+    "a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8,
+    "i": 9, "j": 10, "k": 11, "l": 12, "m": 13, "n": 14, "o": 15, 
+    "p": 16, "q": 17, "r": 18, "s": 19, "t": 20, "u": 21, "v": 22, 
+    "w": 23, "x": 24, "y": 25, "z": 26,
+}
+
+vowels = "aeiou"
+consonants = "bcdfghjklmnpqrstvwxyz"
+
+for char in word:
+    vowel_dist = float("inf")
+    vowel_pos = 0 
+    if char in consonants:
+        # Step 1: the consonant itself
+        res += char 
+
+        # Step 2: Adding the vowel closest to the consonant 
+        # Calculate the minimum distance from all positions 
+        # Shouldnt be a need to handle the equal distance case
+        # because the loop is ordered 
+        for v in vowels:
+            if abs(pos[v] - pos[char]) < vowel_dist: 
+                vowel_dist = abs(pos[v] - pos[char])
+                vowel_pos = pos[v]
+        vowel = [k for k, v in pos.items() if v == vowel_pos]
+        res += "".join(vowel)
+        
+        # Step 3: Adding the next consonant 
+        # Add the next consonant based on the current position
+        curr = consonants.index(char)
+
+        if char == "z":
+            res += "z"
+        else:
+            res += consonants[curr + 1]
+
+    else:
+        res += char
+
+print(res)
