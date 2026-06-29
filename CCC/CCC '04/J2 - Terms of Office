@@ -1,0 +1,18 @@
+year_x = int(input())
+year_y = int(input())
+
+"""
+Mayor every 4 years
+Treasurer every 2 years
+Chief every 3 years
+Dog-catcher every 5 years 
+
+Common multiple of 60 
+"""
+years = []
+
+for i in range(year_x, year_y+1, 60):
+    years.append(i)
+
+for num in years:
+    print(f"All positions change in year {num}")
