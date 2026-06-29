@@ -1,0 +1,7 @@
+import math 
+
+tiles = int(input())
+
+largest = math.floor(tiles**0.5)
+
+print(f"The largest square has side length {largest}.")
