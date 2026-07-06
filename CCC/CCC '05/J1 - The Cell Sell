@@ -1,0 +1,41 @@
+daytime = int(input())
+evening = int(input())
+night = int(input())
+
+"""
+
+Plan	Costs
+daytime	evening	weekend
+A	100 free minutes then 25 cents per minute	15 cents per minute	20 cents per minute
+B	250 free minutes then 45 cents per minute	35 cents per minute	25 cents per minute
+"""
+
+# Plan A
+if daytime - 100 < 0:
+    day_cost_a = 0
+else:
+    day_cost_a = (daytime - 100) * 0.25 
+evening_cost_a = evening * 0.15 
+night_cost_a = night * 0.20
+
+total_cost_a = day_cost_a + evening_cost_a + night_cost_a
+
+# Plan B
+if daytime - 250 < 0:
+    day_cost_b = 0 
+else:
+    day_cost_b = (daytime - 250) * 0.45 
+evening_cost_b  = evening * 0.35 
+night_cost_b = night * 0.25 
+
+total_cost_b = day_cost_b + evening_cost_b + night_cost_b
+
+print(f"Plan A costs {total_cost_a:.2f}")
+print(f"Plan B costs {total_cost_b:.2f}")
+
+if total_cost_a < total_cost_b:
+    print("Plan A is cheapest.")
+elif total_cost_b < total_cost_a:
+    print("Plan B is cheapest.")
+else:
+    print("Plan A and B are the same price.")
