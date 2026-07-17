@@ -1,0 +1,9 @@
+def scalar_multiply(matrix: list[list[int|float]], scalar: int|float) -> list[list[int|float]]:
+	# Your code here
+
+	for row in range(len(matrix)):
+		for element in range(len(matrix[row])):
+			product = scalar * matrix[row][element]
+			matrix[row][element] = product
+
+	return matrix
