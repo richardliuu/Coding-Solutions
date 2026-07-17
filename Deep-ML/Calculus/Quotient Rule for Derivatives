@@ -1,0 +1,45 @@
+import numpy as np
+
+def quotient_rule_derivative(g_coeffs: list, h_coeffs: list, x: float) -> float:
+    """
+    Compute the derivative of f(x) = g(x)/h(x) at point x using the quotient rule.
+    
+    Args:
+        g_coeffs: Coefficients of numerator polynomial in descending order
+        h_coeffs: Coefficients of denominator polynomial in descending order
+        x: Point at which to evaluate the derivative
+        
+    Returns:
+        The derivative value f'(x)
+    """
+    # Merge all the values 
+    g = sum_polynomial(g_coeffs, x)
+    h = sum_polynomial(h_coeffs, x)
+    g_prime = compute_derivative(g_coeffs, x)
+    h_prime = compute_derivative(h_coeffs, x)
+
+    value = ((g_prime * h) - (g * h_prime)) / h ** 2 
+
+    return value 
+
+def compute_derivative(coeffs, x):
+    value = 0
+
+    for i in range(len(coeffs)):
+        # 1 less than it currently is 
+        exponent = len(coeffs) - 1 - i 
+
+        if exponent > 0:
+            value += coeffs[i] * exponent * (x ** (exponent - 1))
+
+    return value 
+
+def sum_polynomial(coeffs, x):
+    # This will be used for the derivative 
+    value = 0 
+
+    for i in range(len(coeffs)):
+        exponent = (len(coeffs) - 1) - i 
+        value += coeffs[i] * (x ** exponent) 
+
+    return value 
