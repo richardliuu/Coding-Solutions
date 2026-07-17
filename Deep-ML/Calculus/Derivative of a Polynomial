@@ -1,0 +1,8 @@
+def poly_term_derivative(c: float, x: float, n: float) -> float:
+    # c = 2
+    # x = 3
+    # n = 2
+    coefficient = c * n 
+    value = coefficient * (x ** (n-1))
+
+    return value
