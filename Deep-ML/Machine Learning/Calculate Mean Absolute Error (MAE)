@@ -1,0 +1,23 @@
+import numpy as np
+
+def mae(y_true, y_pred):
+    """
+    Calculate Mean Absolute Error between two arrays.
+
+    Parameters:
+        y_true (numpy.ndarray): Array of true values
+        y_pred (numpy.ndarray): Array of predicted values
+
+    Returns:
+        float: Mean Absolute Error
+    """
+    y_true = np.asarray(y_true).reshape(-1)
+    y_pred = np.asarray(y_pred).reshape(-1)
+
+    n = len(y_true)
+    error = 0
+
+    for i in range(len(y_true)):
+        error += abs(y_true[i] - y_pred[i])
+
+    return float((1/n) * error) 
