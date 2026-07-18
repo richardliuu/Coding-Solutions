@@ -1,0 +1,22 @@
+
+from collections import Counter
+
+def confusion_matrix(data):
+	# Implement the function here
+	matrix = [[0] * 2 for i in range(2)]
+
+	for i in range(len(data)):
+		if data[i][0] and data[i][1]:
+			# TP
+			matrix[0][0] += 1
+		elif not data[i][0] and data[i][1]:
+			# FP
+			matrix[1][0] += 1
+		elif data[i][0] and not data[i][1]:
+			# FN
+			matrix[0][1] += 1
+		elif not data[i][0] and not data[i][1]: 
+			# TN
+			matrix[1][1] += 1
+
+	return matrix 
