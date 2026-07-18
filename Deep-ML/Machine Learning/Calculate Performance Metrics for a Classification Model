@@ -1,0 +1,63 @@
+
+def performance_metrics(actual: list[int], predicted: list[int]) -> tuple:
+	# Implement your code here
+	accuracy = accuracy_score(actual, predicted)
+	specificity = specificity_score(actual, predicted)
+	negativePredictive = npv_score(actual, predicted)
+	f1 = f1_score(actual, predicted)
+	confusion_matrix = matrix(actual, predicted)
+
+	return confusion_matrix, round(accuracy, 3), round(f1, 3), round(specificity, 3), round(negativePredictive, 3)
+
+def matrix(actual, predicted):
+	arr = [[0] * 2 for i in range(2)]
+
+	for i in range(len(actual)):
+		if actual[i] and predicted[i]:
+			arr[0][0] += 1 
+		elif actual[i] and not predicted[i]:
+			arr[0][1] += 1
+		elif not actual[i] and predicted[i]:
+			arr[1][0] += 1
+		elif not actual[i] and not actual[i]:
+			arr[1][1] += 1
+
+	return arr
+
+def accuracy_score(actual, predicted):
+	mat = matrix(actual, predicted)
+
+	tp = mat[0][0]
+	fp = mat[1][0]
+	fn = mat[0][1]
+	tn = mat[1][1]
+
+	return (tp + tn) / (tp + tn + fp + fn)
+
+def specificity_score(actual, predicted):
+	mat = matrix(actual, predicted)
+
+	tn = mat[1][1]
+	fp = mat[1][0]
+
+	return tn / (tn + fp)
+
+def npv_score(actual, predicted):
+	mat = matrix(actual, predicted)
+
+	fn = mat[0][1]
+	tn = mat[1][1]
+
+	return tn / (tn + fn)
+
+def f1_score(actual, predicted):
+	mat = matrix(actual, predicted)
+
+	tp = mat[0][0]
+	fp = mat[1][0]
+	fn = mat[0][1]
+
+	p = tp / (tp + fp)
+	r = tp / (tp + fn)
+
+	return (2 * (p * r)) / (p + r)
