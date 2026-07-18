@@ -1,0 +1,16 @@
+
+import numpy as np
+
+def r_squared(y_true, y_pred):
+	# Write your code here
+	ssr = 0 
+	sst = 0 
+	mean_y_true = sum(y_true) / len(y_true)
+
+	for i in range(len(y_true)):
+		ssr += (y_true[i] - y_pred[i]) ** 2
+
+	for j in range(len(y_true)):
+		sst += (y_true[j] - mean_y_true) ** 2
+
+	return 1 - (ssr/sst)
