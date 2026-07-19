@@ -1,0 +1,49 @@
+def find_treasure(start_x: float) -> float:
+    """
+    Find the x-coordinate where f(x) = x^4 - 3x^3 + 2 is minimized.
+
+  Returns:
+        float: The x-coordinate of the minimum point.
+    """
+
+    # Derivative of f(x)
+    # f'(x) = 4x^3 - 9x^2 
+    learning_rate = 0.01 
+    x = start_x 
+    iterations = 10000
+    threshold = 1e-6 
+    points = [start_x, -2, 0, 1, 3, 5]
+
+    best_value = float("inf")
+    best_x = None 
+
+    # Loop across points to avoid finding a local minimum --> want global max
+    for x in points:
+      # Iterations to find the lowest point
+      for i in range(iterations):
+        slope = compute_slope(x)
+        x_new = x - learning_rate * slope 
+
+        # Acceptable solution within the threshold 
+        if abs(x_new - x) > threshold:
+          x = x_new
+          break 
+
+        # Continue gradient descent
+        x = x_new 
+      
+      # Minimize the y value
+      value = compute_f(x)
+
+      # Search for a lower minimum
+      if value < best_value:
+        best_value = value 
+        best_x = x 
+
+    return best_x
+
+def compute_slope(x):
+  return 4 * (x ** 3) - 9 * (x ** 2)
+
+def compute_f(x):
+  return x**4 - 3 * (x ** 3) + 2 
