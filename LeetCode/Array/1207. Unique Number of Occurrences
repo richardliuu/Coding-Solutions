@@ -1,0 +1,10 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        counts = Counter(arr)
+        seen = set()
+
+        for item in counts:
+            if counts[item] in seen:
+                return False 
+            seen.add(counts[item])
+        return True 
