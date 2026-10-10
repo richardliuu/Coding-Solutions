@@ -1,0 +1,22 @@
+class Solution:
+    def findWords(self, words: list[str]) -> list[str]:
+        first_row = set("qwertyuiop")
+        second_row = set("asdfghjkl") 
+        third_row = set("zxcvbnm")
+        res = []
+
+        for i in words:
+            # convert to a set to strip unique characters 
+            word = set(i.lower())
+
+            # we determine whether the word is longer or shorter than each row
+            # this will tell us if the row's characters can be used to type the word
+            # if not, then a character from another row was used 
+            if word <= first_row:
+                res.append(i)
+            elif word <= second_row:
+                res.append(i)
+            elif word <= third_row:
+                res.append(i)
+
+        return res 
