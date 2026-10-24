@@ -1,0 +1,24 @@
+a = int(input())
+b = int(input())
+
+# Compute all numbers that are both squares and cubes 
+nums = []
+total = 0 
+
+"""
+These numbers can be rperesented like
+(a^2)^3 = (a^3) ^2 = a^6
+
+square to the third power = cube
+cube to the second power = square 
+both have same exponent 
+"""
+
+for i in range(100):
+    nums.append(i ** 6)
+
+for k in nums:
+    if k >= a and k <= b:
+        total += 1
+
+print(total)
