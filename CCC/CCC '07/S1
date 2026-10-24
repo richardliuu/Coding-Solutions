@@ -1,0 +1,22 @@
+n = int(input())
+
+# reference point is february 27, 2007 in ymd
+
+for i in range(n):
+    year, month, day = map(int, input().split())
+    y = m = d = False 
+
+    # calculate difference in year 
+    if 2007 - year > 18:
+        print("Yes")
+        continue
+    elif 2007-year == 18:
+        if month == 2 and day <= 27:
+            print("Yes")
+        elif month == 1:
+            print("Yes")
+        else:
+            print("No")
+
+    else:
+        print("No")
