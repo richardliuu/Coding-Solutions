@@ -1,0 +1,11 @@
+import math
+
+def softmax(scores: list[float]) -> list[float]:
+    res = [] 
+
+    total = sum(math.e ** (i - max(scores)) for i in scores)
+
+    for i in scores:
+        res.append(math.e ** (i - max(scores)) /total)
+
+    return res 
