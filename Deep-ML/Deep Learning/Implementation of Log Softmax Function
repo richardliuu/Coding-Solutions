@@ -1,0 +1,14 @@
+import numpy as np
+
+def log_softmax(scores: list) -> np.ndarray:
+	# Your code here
+	res = [] 
+
+
+	for i in scores:
+		shifted_x = i - np.max(scores)
+		val = shifted_x - np.log(sum(np.e ** (k - max(scores)) for k in scores))
+		res.append(val)
+
+	return res 
+
