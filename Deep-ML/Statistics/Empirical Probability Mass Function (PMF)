@@ -1,0 +1,18 @@
+import numpy as np 
+
+def empirical_pmf(samples):
+    """
+    Given an iterable of integer samples, return a list of (value, probability)
+    pairs sorted by value ascending.
+    """
+    res = []
+
+    values, counts = np.unique(samples, return_counts=True)
+    frequencies = dict(zip(values, counts))
+
+    for i in frequencies:
+        val = i
+        prob = frequencies[val] / len(samples)
+        res.append((val, prob)) 
+
+    return res 
