@@ -1,0 +1,29 @@
+import math
+
+def sigmoid(x):
+	return  1/(1 + math.e ** (-x))
+
+def tanh(x):
+	return (math.e ** x - math.e ** (-x)) / (math.e ** x + math.e ** (-x))
+
+def activation_derivatives(x: float) -> dict[str, float]:
+	"""
+	Compute the derivatives of Sigmoid, Tanh, and ReLU at a given point x.
+	
+	Args:
+		x: Input value
+		
+	Returns:
+		Dictionary with keys 'sigmoid', 'tanh', 'relu' and their derivative values
+	"""
+	res = {
+		"sigmoid": 0,
+		"tanh": 0,
+		"relu": 0
+	}
+
+	res["sigmoid"] = sigmoid(x) * (1 - sigmoid(x))
+	res["tanh"] = 1 - tanh(x) ** 2 
+	res["relu"] = 1 if x > 0 else 0
+
+	return res
